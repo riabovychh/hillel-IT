@@ -1,17 +1,12 @@
 package lesson9_HomeWork;
 
-public class Person implements Displayable {
+public abstract class Person implements Displayable {
     private String name;
     private int age;
     private String profession;
 
-    static PersonRole role1 = PersonRole.ENGINEER;
-    static PersonRole role2 = PersonRole.TEACHER;
-    static PersonRole role3 = PersonRole.DOCTOR;
-    static PersonRole role4 = PersonRole.EDUCATOR;
 
-
-    // constructor
+    // constructor (так як клас абстрактний, конструктор вже не треба)
     public Person(String name, int age, PersonRole role) {
         this.name = name;
         this.age = age;
@@ -45,7 +40,5 @@ public class Person implements Displayable {
     }
 
     @Override
-    public void displayInformation() {
-        System.out.println("Name: " + getName() + ", Age: " + getAge() + ", Profession: " + getProfession());
-    }
+    public abstract void displayInformation();
 }
