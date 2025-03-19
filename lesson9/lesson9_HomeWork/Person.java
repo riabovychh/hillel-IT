@@ -1,15 +1,43 @@
 package lesson9_HomeWork;
 
-public abstract class Person implements Displayable {
+import java.util.Scanner;
+
+public class Person implements Displayable {
     private String name;
     private int age;
     private String profession;
 
 
-    // constructor (так як клас абстрактний, конструктор вже не треба)
     public Person(String name, int age, PersonRole role) {
-        this.name = name;
-        this.age = age;
+        // exception with age
+        try {
+            if (age < 0) {
+                throw new IllegalArgumentException("Age cannot be negative.");
+            }
+            this.age = age;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage() + " It will be changed to positive.");
+            this.age = Math.abs(age);
+        }
+        // exception with empty name (my own)
+        try {
+            if (name == null || name.isEmpty()) {
+                throw new MyOwnException("Name cannot be null.");
+            }
+            this.name = name;
+        } catch (MyOwnException e) {
+            System.out.println(e.getMessage() + " Please enter the name.");
+            while (true) {
+                System.out.print("Enter name: ");
+                Scanner scanner = new Scanner(System.in);
+                name = scanner.nextLine();
+                if (name != null && !name.isEmpty()) {
+                    this.name = name;
+                    break;
+                } else {
+                    System.out.println("Name cannot be empty. Please enter a valid name.");
+                } }
+        }
         this.profession = String.valueOf(role);
     }
 
@@ -40,5 +68,7 @@ public abstract class Person implements Displayable {
     }
 
     @Override
-    public abstract void displayInformation();
+    public void displayInformation(){
+        System.out.println("Name: " + getName() + ", Age: " + getAge() + ", Profession: " + getProfession());
+    }
 }
