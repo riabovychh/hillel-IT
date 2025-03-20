@@ -4,7 +4,7 @@ public class Man extends Person {
 
     final static String sex = "male";
 
-    public Man(String name, int age, PersonRole role) {
+    public Man(String name, int age, PersonRole role) throws MyOwnException {
         super(name, age, PersonRole.valueOf(String.valueOf(role)));
     }
 

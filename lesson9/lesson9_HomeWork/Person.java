@@ -8,36 +8,16 @@ public class Person implements Displayable {
     private String profession;
 
 
-    public Person(String name, int age, PersonRole role) {
-        // exception with age
-        try {
-            if (age < 0) {
-                throw new IllegalArgumentException("Age cannot be negative.");
-            }
-            this.age = age;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage() + " It will be changed to positive.");
+    public Person(String name, int age, PersonRole role) throws MyOwnException {
+
+        if (age < 0) {
+            System.out.println("Age cannot be negative. It will be changed to positive.");
             this.age = Math.abs(age);
+        } else {
+            this.age = age;
         }
-        // exception with empty name (my own)
-        try {
-            if (name == null || name.isEmpty()) {
-                throw new MyOwnException("Name cannot be null.");
-            }
-            this.name = name;
-        } catch (MyOwnException e) {
-            System.out.println(e.getMessage() + " Please enter the name.");
-            while (true) {
-                System.out.print("Enter name: ");
-                Scanner scanner = new Scanner(System.in);
-                name = scanner.nextLine();
-                if (name != null && !name.isEmpty()) {
-                    this.name = name;
-                    break;
-                } else {
-                    System.out.println("Name cannot be empty. Please enter a valid name.");
-                } }
-        }
+
+        setName(name);
         this.profession = String.valueOf(role);
     }
 
@@ -47,10 +27,13 @@ public class Person implements Displayable {
     }
 
     public void setAge(int age) {
-        this.age = age;
+            this.age = age;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws MyOwnException {
+        if (name == null || name.isEmpty()) {
+            throw new MyOwnException("Name cannot be null.");
+        }
         this.name = name;
     }
 
