@@ -1,6 +1,6 @@
-package main.lesson9.lesson9_Lection;
+package lesson9.lesson9_Lection;
 
-import main.lesson10_Lection.Dog;
+//import main.lesson10_Lection.Dog;
 
 import java.time.Instant;
 import java.util.Date;

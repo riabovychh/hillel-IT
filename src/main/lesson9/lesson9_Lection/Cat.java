@@ -1,4 +1,4 @@
-package main.lesson9.lesson9_Lection;
+package lesson9.lesson9_Lection;
 
 import java.util.Date;
 
