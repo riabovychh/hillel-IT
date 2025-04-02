@@ -1,8 +1,8 @@
-package main.lesson9.lesson9_HomeWork;
+package lesson9.lesson9_HomeWork;
 
 import java.util.Scanner;
 
-import static main.lesson9.lesson9_HomeWork.Person.*;
+import static lesson9.lesson9_HomeWork.Person.*;
 
 public class Main {
     public static void main(String[] args) throws MyOwnException {

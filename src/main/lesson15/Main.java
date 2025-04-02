@@ -1,4 +1,5 @@
-package lesson14_Lection_Exception;
+package lesson15;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class Main {
 //        try - finally
 
         try {
-            Triangle triangle = new Triangle(2, 3, 5);
+            Triangle triangle = new Triangle(2, 3, 3);
             System.out.println("Start");
         } catch (ArithmeticException | NoSuchFieldError e) {
             System.out.println("Catch arithmetic exception");
@@ -37,6 +38,12 @@ public class Main {
                 e.getMessage();
             }
             System.out.println("Always do");
+        }
+
+        try {
+            TriangleValidator.checkSomethingElse();
+        } catch (SecondOwnException e) {
+            throw new RuntimeException(e);
         }
     }
 }

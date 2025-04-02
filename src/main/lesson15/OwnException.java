@@ -1,6 +1,6 @@
-package lesson14_Lection_Exception;
+package lesson15;
 
-public class OwnException extends RuntimeException{
+public class OwnException extends RuntimeException {
     private String something;
 
     public OwnException() {

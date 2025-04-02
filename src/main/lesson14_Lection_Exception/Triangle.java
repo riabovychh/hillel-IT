@@ -1,4 +1,4 @@
-package main.lesson14_Lection_Exception;
+package lesson14_Lection_Exception;
 
 public class Triangle {
     private int firstSide;
