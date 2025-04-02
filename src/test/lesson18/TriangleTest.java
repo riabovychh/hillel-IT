@@ -13,6 +13,11 @@ public class TriangleTest {
         return new Object[][]{{1,3,5}};
     }
 
+    @DataProvider
+    public Object[] provideData() {
+        return new Object[][]{{3,3,3,9}, {4,4,4,12}, {1,1,1,3}};
+    }
+
     public void setUp() {
         System.out.println("Pre-conditions steps");
     }
@@ -47,10 +52,5 @@ public class TriangleTest {
         //  Assert.assertThrows(OwnException.class, () -> new Triangle(side1, side2, side3)); // какую ошибку ожидаем, и на каком месте
         // Assert - выполняет шаги (код), которые были после возникновения ексепшена, exceptedExceptions - не выполняет
         System.out.println("end");
-    }
-
-    @DataProvider
-    public Object[] provideData() {
-        return new Object[][]{{3,3,3,9}, {4,4,4,12}, {1,1,1,3}};
     }
 }
