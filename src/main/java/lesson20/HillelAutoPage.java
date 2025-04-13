@@ -19,6 +19,8 @@ public class HillelAutoPage {
     private WebElement signInButton;
     @FindBy (css = "button.hero-descriptor_btn")
     private WebElement signUpButton;
+    @FindBy (css = "a.header_logo > svg ")
+    private WebElement logo;
 
     public HillelAutoPage (WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -44,5 +46,22 @@ public class HillelAutoPage {
                 .pollingEvery(Duration.ofMillis(5))
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public WebElement getLogo() {
+        return logo;
+    }
+
+    public WebElement getSignUpButton() {
+        return signUpButton;
+    }
+
+    public String rgbaToHex(String rgba) {
+        String[] values = rgba.replace("rgba(", "").replace(")", "").split(",");
+        int r = Integer.parseInt(values[0].trim());
+        int g = Integer.parseInt(values[1].trim());
+        int b = Integer.parseInt(values[2].trim());
+
+        return String.format("#%02x%02x%02x", r, g, b);
     }
 }
