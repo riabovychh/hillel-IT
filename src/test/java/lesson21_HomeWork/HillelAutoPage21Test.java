@@ -36,7 +36,7 @@ public class HillelAutoPage21Test {
 
     @Test
     public void logoDisplayableTest() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // если у тебя JDK 8+, используй new Duration(10, SECONDS)
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement logo = wait.until(ExpectedConditions.visibilityOf(hillelAutoPage.getLogo()));
         Assert.assertTrue(logo.isDisplayed(), "Logo does not displayed");
     }

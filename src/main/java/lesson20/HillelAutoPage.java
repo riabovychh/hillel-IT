@@ -7,22 +7,25 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
+import java.awt.*;
 import java.time.Duration;
 
 
 public class HillelAutoPage {
     private WebDriver driver;
 
-    @FindBy (css = "div > button.header-link")
+    @FindBy(css = "div > button.header-link")
     private WebElement guestLogInButton;
-    @FindBy (css = "div > button.header_signin")
+    @FindBy(css = "div > button.header_signin")
     private WebElement signInButton;
-    @FindBy (css = "button.hero-descriptor_btn")
+    @FindBy(css = "button.hero-descriptor_btn")
     private WebElement signUpButton;
-    @FindBy (css = "a.header_logo > svg ")
+    @FindBy(css = "a.header_logo > svg ")
     private WebElement logo;
+    @FindBy(css = "iframe.hero-video_frame")
+    private WebElement videoFrame;
 
-    public HillelAutoPage (WebDriver driver) {
+    public HillelAutoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -63,5 +66,19 @@ public class HillelAutoPage {
         int b = Integer.parseInt(values[2].trim());
 
         return String.format("#%02x%02x%02x", r, g, b);
+    }
+
+    public void getBackToMainPage() throws InterruptedException {
+        for (String windowHandle : driver.getWindowHandles()) {
+            String title = driver.switchTo().window(windowHandle).getTitle();
+            Thread.sleep(3000);
+            if (title.toLowerCase().contains("hillel qauto")) {
+                break;
+            }
+        }
+    }
+
+    public WebElement getVideoFrame() {
+        return videoFrame;
     }
 }
