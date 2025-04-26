@@ -35,6 +35,11 @@ public class HillelAutoPage {
         actions.click(guestLogInButton).build().perform();  // попробувала через Actions
     }
 
+    public void clickGuestLoginButton() {
+        Actions actions = new Actions(driver);
+        actions.click(guestLogInButton).build().perform();
+    }
+
     public void waitTitle() {
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
         wait.withTimeout(Duration.ofSeconds(10))
