@@ -59,7 +59,7 @@ public class GaragePageTest {
         hillelAutoPage = new HillelAutoPage(driver);
 
 
-        hillelAutoPage.clickGuestLoginButton();
+        hillelAutoPage.clickGuestLogInButton();
         String expectedUrl = "https://qauto.forstudy.space/panel/garage";
         String actualUrl = driver.getCurrentUrl();
 
@@ -156,7 +156,7 @@ public class GaragePageTest {
         hillelAutoPage = new HillelAutoPage(driver);
 
 
-        hillelAutoPage.clickGuestLoginButton();
+        hillelAutoPage.clickGuestLogInButton();
         String expectedUrl = "https://qauto.forstudy.space/panel/garage";
         String actualUrl = driver.getCurrentUrl();
 

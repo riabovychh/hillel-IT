@@ -61,7 +61,7 @@ public class GaragePageDownloadReadWriteTest {
 
     @Test
     public void downloadFileOnGaragePageTest() {
-        hillelAutoPage.clickGuestLoginButton();
+        hillelAutoPage.clickGuestLogInButton();
         String expectedUrl = "https://guest:welcome2qauto@qauto.forstudy.space/panel/garage";
         String actualUrl = driver.getCurrentUrl();
 
@@ -87,7 +87,7 @@ public class GaragePageDownloadReadWriteTest {
 
     @Test
     public void writeToFileFromGaragePageTest() throws IOException {
-        hillelAutoPage.clickGuestLoginButton();
+        hillelAutoPage.clickGuestLogInButton();
         String expectedUrl = "https://guest:welcome2qauto@qauto.forstudy.space/panel/garage";
         String actualUrl = driver.getCurrentUrl();
 

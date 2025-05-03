@@ -2,7 +2,7 @@
 <suite name="Suite1" verbose="1">
   <test name="Regression1">
       <classes>
-         <class name="lesson18.HomeWork.Calculator"/>
+         <class name="lesson25_HomeWork_PageObjectWithAllure.GaragePageWithAllureTest"/>
       </classes>
   </test>
 </suite>

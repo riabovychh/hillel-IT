@@ -1,5 +1,6 @@
 package lesson20;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -30,16 +31,13 @@ public class HillelAutoPage {
         this.driver = driver;
     }
 
+    @Step("Click Guest Login button")
     public void clickGuestLogInButton() {
         Actions actions = new Actions(driver);
         actions.click(guestLogInButton).build().perform();  // попробувала через Actions
     }
 
-    public void clickGuestLoginButton() {
-        Actions actions = new Actions(driver);
-        actions.click(guestLogInButton).build().perform();
-    }
-
+    @Step("Waiting for title")
     public void waitTitle() {
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
         wait.withTimeout(Duration.ofSeconds(10))
@@ -48,6 +46,7 @@ public class HillelAutoPage {
         wait.until(ExpectedConditions.titleIs("Hillel Qauto"));
     }
 
+    @Step("Waiting for element to become clickable")
     public void waitElementClickable(WebElement element) {
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
         wait.withTimeout(Duration.ofSeconds(10))
@@ -64,6 +63,7 @@ public class HillelAutoPage {
         return signUpButton;
     }
 
+    @Step("Transform the color from rgba format to hex")
     public String rgbaToHex(String rgba) {
         String[] values = rgba.replace("rgba(", "").replace(")", "").split(",");
         int r = Integer.parseInt(values[0].trim());
@@ -73,6 +73,7 @@ public class HillelAutoPage {
         return String.format("#%02x%02x%02x", r, g, b);
     }
 
+    @Step("Get back to the tab with opened main page")
     public void getBackToMainPage() throws InterruptedException {
         for (String windowHandle : driver.getWindowHandles()) {
             String title = driver.switchTo().window(windowHandle).getTitle();
