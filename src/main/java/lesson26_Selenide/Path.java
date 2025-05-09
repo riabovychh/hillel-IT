@@ -23,5 +23,10 @@ public interface Path {
     String HILLEL_SIGN_UP_BUTTON = "button.hero-descriptor_btn";
     String HILLEL_LOGO = "a.header_logo > svg ";
     String HILLEL_VIDEO_FRAME = "iframe.hero-video_frame";
+    String HILLEL_SIGN_IN_MODAL_WINDOW = "app-signin-modal";
+    String HILLEL_LOGIN_EMAIL_INPUT = "#signinEmail";
+    String HILLEL_LOGIN_PASSWORD_INPUT = "#signinPassword";
+    String HILLEL_LOGIN_BUTTON = "div.modal-footer > button.btn-primary";
+    String HILLEL_WRONG_CREDENTIALS_NOTIFICATION = "p.alert-danger";
 
 }
