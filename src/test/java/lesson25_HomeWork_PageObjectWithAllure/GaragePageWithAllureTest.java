@@ -39,9 +39,7 @@ public class GaragePageWithAllureTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
-        driver = new RemoteWebDriver(
-                new URL("http://localhost:8080/wd/hub"), options
-        );
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://guest:welcome2qauto@qauto.forstudy.space/");
