@@ -8,12 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,9 +33,15 @@ public class GaragePageWithAllureTest {
 
     @BeforeClass
     @Step("Opening the main page in Google Chrome")
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
-        driver = new ChromeDriver(options);
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        driver = new RemoteWebDriver(
+                new URL("http://localhost:8080/wd/hub"), options
+        );
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://guest:welcome2qauto@qauto.forstudy.space/");
